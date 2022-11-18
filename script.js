@@ -5,6 +5,10 @@ var gameHistory = {
     losses: 0,
     ties: 0
 }
+//assign values to document 
+document.getElementById('wins').innerHTML = gameHistory.wins;
+document.getElementById('losses').innerHTML = gameHistory.losses;
+document.getElementById('ties').innerHTML = gameHistory.ties;
 
 //three options
 
@@ -22,9 +26,8 @@ function computerRoll() {
     return;
 }
 
-computerRoll();
-
-console.log(computerChoice);
+// computerRoll(); 
+// console.log(computerChoice); testing computerRoll function
 
 var playAgain = false;
 
@@ -33,6 +36,7 @@ function playGame() {
     computerRoll();
     if (computerChoice == userInput) {
         gameHistory.ties++;
+        document.getElementById('ties').innerHTML = gameHistory.ties;
         alert('You played ' + userInput + '. Computer responds with ' + computerChoice + ". That's a tie! Your game history:\n Wins: " + gameHistory.wins + "\n Losses: " + gameHistory.losses + "\n Ties: " + gameHistory.ties);
         playAgain = confirm('Do you want to play again?');
         if (playAgain) {
@@ -42,6 +46,7 @@ function playGame() {
         }
     } else if (computerChoice == 'Rock' && userInput == 'Paper') {
         gameHistory.wins++;
+        document.getElementById('wins').innerHTML = gameHistory.wins;
         alert('You played ' + userInput + '. Computer responds with ' + computerChoice + ". Paper covers rock - you win! Your game history:\n Wins: " + gameHistory.wins + "\n Losses: " + gameHistory.losses + "\n Ties: " + gameHistory.ties);
         playAgain = confirm('Do you want to play again?');
         if (playAgain) {
@@ -51,6 +56,7 @@ function playGame() {
         }
     } else if (computerChoice == 'Rock' && userInput == 'Scissors') {
         gameHistory.losses++;
+        document.getElementById('losses').innerHTML = gameHistory.losses;
         alert('You played ' + userInput + '. Computer responds with ' + computerChoice + ". You got crushed! Your game history:\n Wins: " + gameHistory.wins + "\n Losses: " + gameHistory.losses + "\n Ties: " + gameHistory.ties);
         playAgain = confirm('Do you want to play again?');
         if (playAgain) {
@@ -60,6 +66,7 @@ function playGame() {
         }
     } else if (computerChoice == 'Paper' && userInput == 'Rock') {
         gameHistory.losses++;
+        document.getElementById('losses').innerHTML = gameHistory.losses;
         alert('You played ' + userInput + '. Computer responds with ' + computerChoice + ". Sorry, mate - you lose! Your game history:\n Wins: " + gameHistory.wins + "\n Losses: " + gameHistory.losses + "\n Ties: " + gameHistory.ties);
         playAgain = confirm('Do you want to play again?');
         if (playAgain) {
@@ -69,6 +76,7 @@ function playGame() {
         }
     } else if (computerChoice == 'Paper' && userInput == 'Scissors') {
         gameHistory.wins++;
+        document.getElementById('wins').innerHTML = gameHistory.wins;
         alert('You played ' + userInput + '. Computer responds with ' + computerChoice + ". Scissors tear paper to shreds - you win! Your game history:\n Wins: " + gameHistory.wins + "\n Losses: " + gameHistory.losses + "\n Ties: " + gameHistory.ties);
         playAgain = confirm('Do you want to play again?');
         if (playAgain) {
@@ -78,6 +86,7 @@ function playGame() {
         }
     } else if (computerChoice == 'Scissors' && userInput == 'Rock') {
         gameHistory.wins++;
+        document.getElementById('wins').innerHTML = gameHistory.wins;
         alert('You played ' + userInput + '. Computer responds with ' + computerChoice + ". Rock CRUSHES scissors - you win! Your game history:\n Wins: " + gameHistory.wins + "\n Losses: " + gameHistory.losses + "\n Ties: " + gameHistory.ties);
         playAgain = confirm('Do you want to play again?');
         if (playAgain) {
@@ -86,7 +95,8 @@ function playGame() {
             return;
         }
     } else if (computerChoice == 'Scissors' && userInput == 'Paper') {
-        gameHistory.wins++;
+        gameHistory.losses++;
+        document.getElementById('losses').innerHTML = gameHistory.losses;
         alert('You played ' + userInput + '. Computer responds with ' + computerChoice + ". Ouch, scissors tore you up - you lose! Your game history:\n Wins: " + gameHistory.wins + "\n Losses: " + gameHistory.losses + "\n Ties: " + gameHistory.ties);
         playAgain = confirm('Do you want to play again?');
         if (playAgain) {
