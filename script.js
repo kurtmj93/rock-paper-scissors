@@ -1,4 +1,5 @@
 // stores game history
+// how would I go about storing info such as - last five games were losses?
 
 let gameHistory = {
     wins: 0,
@@ -19,7 +20,12 @@ const htmlWins = document.querySelector("#wins");
 const htmlLosses = document.querySelector("#losses");
 const htmlTies = document.querySelector("#ties");
 
+// buttons do functions
+
 buttonPlay.onclick = playGame;
+
+
+// directly calling function e.g. buttonRock.onclick = gameLoop('Rock') was automatically running on refresh. this syntax is working properly
 
 buttonRock.onclick = function() {
     gameLoop('Rock');
@@ -37,6 +43,8 @@ function getRandomInt(max) {
     return Math.floor(Math.random() * max);
 }
 
+// resets game state. iterates through class to hide user input buttons
+
 function reset() {
     let i = 0;
     while (i < 3) {
@@ -47,6 +55,8 @@ function reset() {
     buttonPlay.innerText = 'Play Again';
 }
 
+// iterates through class to show user input buttons
+
 function playGame() {
     buttonPlay.style.display = 'none';
     message.innerText = 'Choose your fighter!';
@@ -56,6 +66,8 @@ function playGame() {
         i++;
     }
 }
+
+// iterates counts in gameHistory object and updates html - no tie function as it's only used once, below
 
 function countWin() {
     gameHistory.wins++;
@@ -69,11 +81,20 @@ function countLoss() {
     htmlLosses.innerText = gameHistory.losses;
 }
 
+// checks for silly achievements and sends browser alert messages
+
 function achieve() {
-    if (gameHistory.total == 30) {
-        alert('Wow, dude, 30 games? Go outside and touch grass.')
-    }
+    let winPercent = (gameHistory.wins / (gameHistory.wins + gameHistory.losses));
+    if (gameHistory.total == 40) {
+        alert('Wow, dude, 40 games? Go outside and touch grass.')
+    } else if ((gameHistory.wins+gameHistory.losses) > 9 && winPercent > 0.66) {
+        alert('Your win percent is ' + winPercent*100 + "%. Pretty lucky!")
+    } else if ((gameHistory.wins+gameHistory.losses) > 9 && winPercent < 0.33) {
+        alert('Ouch. Your win percent is ' + winPercent*100 + "%. I swear it's not rigged.")
+    } 
 }
+
+// here's the primary game loop
 
 function gameLoop(userInput) {
     let options = ['Rock', 'Paper', 'Scissors'];
