@@ -10,17 +10,26 @@
 
 <body>
   
-  <h1 style="text-align:center">Rock, Paper, Scissors!</h1>
+  <h1>Rock, Paper, Scissors!</h1>
 
   <main>
-    <section>
-      <h2>Your Game History</h2>
+    <section id="message"></section>
+    <section id="gameButtons">
+      <a href="#" id="buttonPlay">Play</a>
+      </section>
+    <section id="options"> 
+      <a href="#" id="buttonRock">Rock</a>
+      <a href="#" id="buttonPaper">Paper</a>
+      <a href="#" id="buttonScissors">Scissors</a>
+      </section>
+    <aside>
+      <h3>Your Game History</h3>
       <ul>
         <li>Wins: <span id="wins"></span></li>
         <li>Losses: <span id="losses"></span></li>
         <li>Ties: <span id="ties"></span></li>
       </ul>
-    </section>
+    </aside>
   </main>
 
   <script src="script.js"></script>
