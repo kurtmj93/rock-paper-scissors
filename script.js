@@ -11,7 +11,7 @@ let gameHistory = {
 
 const message = document.querySelector("#message");
 const buttonPlay = document.querySelector("#buttonPlay");
-const optionButtons = document.querySelector("#options");
+const optionButtons = document.querySelectorAll(".choice");
 const buttonRock = document.querySelector("#buttonRock");
 const buttonPaper = document.querySelector("#buttonPaper");
 const buttonScissors = document.querySelector("#buttonScissors");
@@ -38,15 +38,23 @@ function getRandomInt(max) {
 }
 
 function reset() {
-    optionButtons.style.display = 'none';
-    buttonPlay.style.display = 'block';
+    let i = 0;
+    while (i < 3) {
+        optionButtons[i].style.display ='none';
+        i++;
+    }
+    buttonPlay.style.display = 'inline-block';
     buttonPlay.innerText = 'Play Again';
 }
 
 function playGame() {
     buttonPlay.style.display = 'none';
     message.innerText = 'Choose your fighter!';
-    optionButtons.style.display = 'block';
+    let i = 0;
+    while (i < 3) {
+        optionButtons[i].style.display ='inline-block';
+        i++;
+    }
 }
 
 function countWin() {
@@ -70,7 +78,6 @@ function achieve() {
 function gameLoop(userInput) {
     let options = ['Rock', 'Paper', 'Scissors'];
     let computerChoice = options[getRandomInt(3)];
-    console.log(computerChoice);
     let standardGameMessage = 'You played ' + userInput + '. Computer responds with ' + computerChoice + ".";
     if (computerChoice == userInput) {
         gameHistory.ties++;

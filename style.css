@@ -1,3 +1,73 @@
-#options {
+
+/* Global Reset */
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+    color: white;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    padding: 100px;
+    color: white;
+    background-color: white;
+}
+
+main {
+    padding: 50px;
+    background: black;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: auto;
+    align-items: center;
+}
+
+ul {
+    list-style: none;
+    text-align: center;
+}
+
+h1, h2, h3 {
+    margin-bottom: 20px;
+}
+
+/* Default buttons to show */
+
+.choice {
     display: none;
+}
+
+#buttonPlay {
+    display: block;
+}
+
+
+/* Global Button Style */
+
+a {
+    padding: 10px;
+    border: solid 2px white;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    background-color: black;
+    border-radius: 2px;
+}
+
+div {
+    display: block;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+section {
+    max-width: 300px;
+    display: block;
+    margin-bottom: 20px;
 }
